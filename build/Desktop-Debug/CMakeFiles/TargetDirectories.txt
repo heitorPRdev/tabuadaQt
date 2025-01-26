@@ -1,0 +1,9 @@
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/Tabuada.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/install.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/install/local.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/Tabuada_autogen_timestamp_deps.dir
+/mnt/HD/AulasDeC++/QT5Aulas/execicios/Tabuada/build/Desktop-Debug/CMakeFiles/Tabuada_autogen.dir
