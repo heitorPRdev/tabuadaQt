@@ -12,13 +12,16 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,13 +30,17 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QWidget *gridLayoutWidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
-    QPushButton *btnEnviar;
-    QSpinBox *snTabua;
-    QLabel *label;
-    QSpinBox *snNum;
     QLabel *label_2;
+    QLabel *label;
+    QSpinBox *snTabua;
+    QSpinBox *snNum;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *btnEnviar;
+    QSpacerItem *horizontalSpacer_2;
     QListView *vrRes;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -42,53 +49,89 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(535, 263);
-        MainWindow->setMinimumSize(QSize(535, 263));
-        MainWindow->setMaximumSize(QSize(535, 263));
+        MainWindow->resize(545, 273);
+        MainWindow->setMinimumSize(QSize(545, 273));
+        MainWindow->setMaximumSize(QSize(545, 273));
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color:rgb(222, 221, 218);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        gridLayoutWidget = new QWidget(centralwidget);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(30, 20, 491, 91));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 531, 221));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(5, 5, 5, 5);
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        btnEnviar = new QPushButton(gridLayoutWidget);
-        btnEnviar->setObjectName(QString::fromUtf8("btnEnviar"));
+        label_2 = new QLabel(verticalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setStyleSheet(QString::fromUtf8("color:black;"));
 
-        gridLayout->addWidget(btnEnviar, 2, 0, 1, 1);
+        gridLayout->addWidget(label_2, 0, 1, 1, 1);
 
-        snTabua = new QSpinBox(gridLayoutWidget);
+        label = new QLabel(verticalLayoutWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setStyleSheet(QString::fromUtf8("color:black;"));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        snTabua = new QSpinBox(verticalLayoutWidget);
         snTabua->setObjectName(QString::fromUtf8("snTabua"));
+        snTabua->setStyleSheet(QString::fromUtf8("color:black;\n"
+"background-color: white;"));
         snTabua->setMaximum(1000);
 
         gridLayout->addWidget(snTabua, 1, 1, 1, 1);
 
-        label = new QLabel(gridLayoutWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
-        snNum = new QSpinBox(gridLayoutWidget);
+        snNum = new QSpinBox(verticalLayoutWidget);
         snNum->setObjectName(QString::fromUtf8("snNum"));
+        snNum->setStyleSheet(QString::fromUtf8("color:black;\n"
+"background-color: white;"));
         snNum->setMaximum(1000);
 
         gridLayout->addWidget(snNum, 1, 0, 1, 1);
 
-        label_2 = new QLabel(gridLayoutWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(150, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout->addWidget(label_2, 0, 1, 1, 1);
+        horizontalLayout->addItem(horizontalSpacer);
 
-        vrRes = new QListView(centralwidget);
+        btnEnviar = new QPushButton(verticalLayoutWidget);
+        btnEnviar->setObjectName(QString::fromUtf8("btnEnviar"));
+        QFont font;
+        font.setPointSize(12);
+        btnEnviar->setFont(font);
+        btnEnviar->setStyleSheet(QString::fromUtf8("color:black;\n"
+"background-color: white;\n"
+"border-radius: 5px;"));
+
+        horizontalLayout->addWidget(btnEnviar);
+
+        horizontalSpacer_2 = new QSpacerItem(150, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+
+        gridLayout->addLayout(horizontalLayout, 2, 0, 1, 2);
+
+
+        verticalLayout->addLayout(gridLayout);
+
+        vrRes = new QListView(verticalLayoutWidget);
         vrRes->setObjectName(QString::fromUtf8("vrRes"));
         vrRes->setEnabled(true);
-        vrRes->setGeometry(QRect(50, 120, 461, 101));
+        vrRes->setStyleSheet(QString::fromUtf8("color:black;\n"
+"background-color: white;\n"
+"border-radius: 5px;"));
         vrRes->setEditTriggers(QAbstractItemView::EditKeyPressed);
+
+        verticalLayout->addWidget(vrRes);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 535, 20));
+        menubar->setGeometry(QRect(0, 0, 545, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -102,9 +145,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        btnEnviar->setText(QCoreApplication::translate("MainWindow", "Enviar", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "Numero", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Tabuada Max", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "Numero", nullptr));
+        btnEnviar->setText(QCoreApplication::translate("MainWindow", "Enviar", nullptr));
     } // retranslateUi
 
 };
